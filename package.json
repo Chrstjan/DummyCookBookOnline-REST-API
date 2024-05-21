@@ -3,5 +3,28 @@
     "@supabase/supabase-js": "^2.43.2",
     "dotenv": "^16.4.5",
     "express": "^4.19.2"
-  }
+  },
+  "name": "dummycookbookonline",
+  "description": "A REST API Made for my dummy online cookbook database",
+  "version": "1.0.0",
+  "main": "index.js",
+  "type": "module",
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Chrstjan/DummyCookBookOnline-REST-API.git"
+  },
+  "keywords": [
+    "cookbook",
+    "dummycookbook"
+  ],
+  "author": "Chrstjan",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Chrstjan/DummyCookBookOnline-REST-API/issues"
+  },
+  "homepage": "https://github.com/Chrstjan/DummyCookBookOnline-REST-API#readme"
 }
