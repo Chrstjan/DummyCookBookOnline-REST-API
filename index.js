@@ -6,12 +6,11 @@ import { MealController } from "./Controllers/meal.controller.js";
 import { IngredientController } from "./Controllers/ingredient.controller.js";
 
 const app = express();
+app.use(express.urlencoded({ extended: true }));
 
 dotenv.config();
 
 const port = process.env.PORT;
-
-app.use(express.urlencoded({ extended: true }));
 
 app.get("/", (req, res) => {
   res.send("Welcome to the DummyCookBookOnline REST API");

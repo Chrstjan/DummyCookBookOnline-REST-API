@@ -26,4 +26,31 @@ export default class MealModel {
       console.error(`Error fetching meal: ${error}`);
     }
   }
+
+  static async createMeal(formdata) {
+    try {
+      const { data, error } = await supabase.from("meals").insert([
+        {
+          meal_name: formdata.meal_name,
+          category: formdata.category,
+          created_by: formdata.created_by,
+          created_at: formdata.created_at,
+          updated_at: formdata.updated_at,
+          meal_thumbnail: formdata.meal_thumbnail,
+          meal_description: formdata.meal_description,
+          meal_prep_time: formdata.meal_prep_time,
+          meal_cook_time: formdata.meal_cook_time,
+          meal_instructions: formdata.meal_instructions,
+        },
+      ]);
+      if (error) {
+        throw new Error(error);
+      } else {
+        return data;
+      }
+    } catch (error) {
+      console.error(`Error creating meal: ${error}`);
+      console.log(error.meesage);
+    }
+  }
 }

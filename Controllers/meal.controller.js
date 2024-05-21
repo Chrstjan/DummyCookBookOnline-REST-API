@@ -12,3 +12,8 @@ MealController.get("/meals/:id", async (req, res) => {
   const data = await MealModel.getMealById(id);
   res.send(data);
 });
+
+MealController.post("/meals", async (req, res) => {
+  const data = await MealModel.createMeal(req.body);
+  res.send(data);
+});

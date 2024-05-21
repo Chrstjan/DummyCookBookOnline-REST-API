@@ -29,4 +29,23 @@ export default class CategoryModel {
       console.error(`Error fetching category: ${error}`);
     }
   }
+
+  static async createCategory(formdata) {
+    try {
+      const { data, error } = await supabase.from("categories").insert([
+        {
+          name: formdata.name,
+          description: formdata.description,
+          thumbnail: formdata.thumbnail,
+        },
+      ]);
+      if (error) {
+        throw new Error(error);
+      } else {
+        return data;
+      }
+    } catch (error) {
+      console.error(`Error creating category: ${error}`);
+    }
+  }
 }
