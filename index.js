@@ -1,6 +1,8 @@
 import express from "express";
 import dotenv from "dotenv";
 
+import { CategoryController } from "./Controllers/category.controller.js";
+
 const app = express();
 
 dotenv.config();
@@ -12,6 +14,8 @@ app.use(express.urlencoded({ extended: true }));
 app.get("/", (req, res) => {
   res.send("Welcome to the DummyCookBookOnline REST API");
 });
+
+app.use(CategoryController);
 
 app.use((req, res) => {
   res.status(404).send("Site was not found");
