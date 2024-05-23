@@ -82,4 +82,20 @@ export default class MealModel {
       console.error(`Error updating meal: ${error}`);
     }
   }
+
+  static async deleteMeal(formdata) {
+    try {
+      let { data, error } = await supabase
+        .from("meals")
+        .delete()
+        .eq("id", formdata.id);
+      if (error) {
+        throw new Error(error.message);
+      } else {
+        return data;
+      }
+    } catch (error) {
+      console.error(`Error deleteing meal: ${error}`);
+    }
+  }
 }

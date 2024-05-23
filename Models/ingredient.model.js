@@ -66,4 +66,20 @@ export default class IngredientModel {
       console.error(`Error updating ingredient: ${error}`);
     }
   }
+
+  static async deleteIngredient(formdata) {
+    try {
+      let { data, error } = await supabase
+        .from("ingredients")
+        .delete()
+        .eq("id", formdata.id);
+      if (error) {
+        throw new Error(error.message);
+      } else {
+        return data;
+      }
+    } catch (error) {
+      console.error(`Error deleting ingredient: ${error}`);
+    }
+  }
 }

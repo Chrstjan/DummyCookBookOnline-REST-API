@@ -70,4 +70,20 @@ export default class CategoryModel {
       console.error(`Error updating category: ${error}`);
     }
   }
+
+  static async deleteCategory(formdata) {
+    try {
+      let { data, error } = await supabase
+        .from("categories")
+        .delete()
+        .eq("id", formdata.id);
+      if (error) {
+        throw new Error(error.message);
+      } else {
+        return data;
+      }
+    } catch (error) {
+      console.error(`Error deleting category: ${error}`);
+    }
+  }
 }

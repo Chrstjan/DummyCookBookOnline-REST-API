@@ -22,3 +22,9 @@ MealController.put("/meals", async (req, res) => {
   const data = await MealModel.updateMeal(req.body);
   res.send(data);
 });
+
+MealController.delete("/meals", async (req, res) => {
+  const data = await MealModel.deleteMeal(req.body);
+  console.log("Deleted Meal");
+  res.send(data);
+});

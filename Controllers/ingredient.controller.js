@@ -22,3 +22,9 @@ IngredientController.put("/ingredients", async (req, res) => {
   const data = await IngredientModel.updateIngredient(req.body);
   res.send(data);
 });
+
+IngredientController.delete("/ingredients", async (req, res) => {
+  const data = await IngredientModel.deleteIngredient(req.body);
+  console.log("Deleted Ingredient");
+  res.send(data);
+});

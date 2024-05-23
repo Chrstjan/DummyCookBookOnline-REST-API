@@ -24,3 +24,9 @@ CategoryController.put("/categories", async (req, res) => {
   const data = await CategoryModel.updateCategory(req.body);
   res.send(data);
 });
+
+CategoryController.delete("/categories", async (req, res) => {
+  const data = await CategoryModel.deleteCategory(req.body);
+  console.log("Deleted Category");
+  res.send(data);
+});
