@@ -17,3 +17,8 @@ IngredientController.post("/ingredients", async (req, res) => {
   const data = await IngredientModel.createIngredient(req.body);
   res.send(data);
 });
+
+IngredientController.put("/ingredients", async (req, res) => {
+  const data = await IngredientModel.updateIngredient(req.body);
+  res.send(data);
+});

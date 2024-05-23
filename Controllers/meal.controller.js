@@ -17,3 +17,8 @@ MealController.post("/meals", async (req, res) => {
   const data = await MealModel.createMeal(req.body);
   res.send(data);
 });
+
+MealController.put("/meals", async (req, res) => {
+  const data = await MealModel.updateMeal(req.body);
+  res.send(data);
+});

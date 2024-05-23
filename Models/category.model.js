@@ -48,4 +48,26 @@ export default class CategoryModel {
       console.error(`Error creating category: ${error}`);
     }
   }
+
+  static async updateCategory(formdata) {
+    try {
+      let { data, error } = await supabase
+        .from("categories")
+        .update([
+          {
+            name: formdata.name,
+            description: formdata.description,
+            thumbnail: formdata.thumbnail,
+          },
+        ])
+        .eq("id", formdata.id);
+      if (error) {
+        throw new Error(error.message);
+      } else {
+        return data;
+      }
+    } catch (error) {
+      console.error(`Error updating category: ${error}`);
+    }
+  }
 }

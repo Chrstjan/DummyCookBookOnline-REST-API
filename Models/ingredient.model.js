@@ -46,4 +46,24 @@ export default class IngredientModel {
       console.error(`Error creating ingredient: ${error}`);
     }
   }
+
+  static async updateIngredient(formdata) {
+    try {
+      let { data, error } = await supabase
+        .from("ingredients")
+        .update([
+          {
+            name: formdata.name,
+          },
+        ])
+        .eq("id", formdata.id);
+      if (error) {
+        throw new Error(error.message);
+      } else {
+        return data;
+      }
+    } catch (error) {
+      console.error(`Error updating ingredient: ${error}`);
+    }
+  }
 }

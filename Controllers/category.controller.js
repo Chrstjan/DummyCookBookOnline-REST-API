@@ -19,3 +19,8 @@ CategoryController.post("/categories", async (req, res) => {
   res.send(data);
   console.log(data);
 });
+
+CategoryController.put("/categories", async (req, res) => {
+  const data = await CategoryModel.updateCategory(req.body);
+  res.send(data);
+});
