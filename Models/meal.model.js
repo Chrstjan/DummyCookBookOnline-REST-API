@@ -18,7 +18,7 @@ export default class MealModel {
     try {
       const { data, error } = await supabase.from("meals").select("*").single();
       if (error) {
-        throw new Error(error);
+        throw new Error(error.message);
       } else {
         return data;
       }
@@ -44,7 +44,7 @@ export default class MealModel {
         },
       ]);
       if (error) {
-        throw new Error(error);
+        throw new Error(error.message);
       } else {
         return data;
       }

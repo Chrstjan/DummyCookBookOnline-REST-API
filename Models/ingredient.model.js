@@ -29,4 +29,21 @@ export default class IngredientModel {
       console.error(`Error fetching ingredient: ${error}`);
     }
   }
+
+  static async createIngredient(formdata) {
+    try {
+      const { data, error } = await supabase.from("ingredients").insert([
+        {
+          name: formdata.name,
+        },
+      ]);
+      if (error) {
+        throw new Error(error.message);
+      } else {
+        return data;
+      }
+    } catch (error) {
+      console.error(`Error creating ingredient: ${error}`);
+    }
+  }
 }
