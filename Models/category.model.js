@@ -19,14 +19,32 @@ export default class CategoryModel {
       const { data, error } = await supabase
         .from("categories")
         .select("*")
+        .eq("id", id)
         .single();
       if (error) {
-        throw new Error(error);
+        throw new Error(error.message);
       } else {
         return data;
       }
     } catch (error) {
       console.error(`Error fetching category: ${error}`);
+    }
+  }
+
+  static async getCategoryByName(name) {
+    try {
+      const { data, error } = await supabase
+        .from("categories")
+        .select("*")
+        .eq("name", name)
+        .single();
+      if (error) {
+        throw new Error(error.message);
+      } else {
+        return data;
+      }
+    } catch (error) {
+      console.error(`Error fetching category by name: ${error}`);
     }
   }
 
